@@ -17,11 +17,10 @@
    Example:
    const FOUNDATION_WHATSAPP_NUMBER = "923001234567";
 
-   Pakistan number mein:
+   Pakistan number:
    03001234567
-   ko
+   becomes:
    923001234567
-   likhna hai.
 
    +, spaces ya dashes nahi lagane.
 ========================================================= */
@@ -33,17 +32,17 @@ const FOUNDATION_WHATSAPP_NUMBER = "";
    DEMO BLOOD CASE / DONOR DATABASE
 =========================================================
 
-   Har record mein:
+   Har record:
 
-   name          = donor ka naam
-   bloodGroup    = blood group
-   area          = area
-   phone         = donor ka phone
-   caseClosedDate = jis date par blood case close hua
+   name
+   bloodGroup
+   area
+   phone
+   caseClosedDate
 
-   IMPORTANT:
-   Case close hone ke 3 CALENDAR MONTHS ke baad donor
-   dobara available/searchable hoga.
+   Rule:
+   Case closed date + 3 calendar months
+   = donor available/searchable date
 
 ========================================================= */
 
@@ -104,19 +103,6 @@ const donors = [
     }
 
 ];
-
-
-/* =========================================================
-   WAITING PERIOD
-=========================================================
-
-   Ab 90 days use nahi kar rahe.
-
-   Rule:
-   Case closed date + 3 calendar months
-   = donor available date
-
-========================================================= */
 
 
 /* =========================================================
@@ -204,7 +190,7 @@ function setupMobileMenu() {
     });
 
 
-    /* Close menu after clicking a link */
+    /* Close mobile menu after clicking a link */
 
     const links =
         navMenu.querySelectorAll("a");
@@ -244,9 +230,7 @@ function setupMobileMenu() {
 function setupSmoothNavigation() {
 
     const links =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
+        document.querySelectorAll('a[href^="#"]');
 
 
     links.forEach(link => {
@@ -262,9 +246,7 @@ function setupSmoothNavigation() {
                 targetId === "#" ||
                 targetId.length <= 1
             ) {
-
                 return;
-
             }
 
 
@@ -281,7 +263,7 @@ function setupSmoothNavigation() {
 
 
             const header =
-                document.querySelector(".main-header");
+                document.querySelector(".header");
 
 
             const headerHeight =
@@ -321,13 +303,21 @@ function setupWhatsAppButtons() {
 
         "navWhatsapp",
 
+        "heroWhatsapp",
+
         "emergencyWhatsapp",
 
         "donorWhatsapp",
 
         "contactWhatsapp",
 
-        "floatingWhatsapp"
+        "floatingWhatsapp",
+
+        "ctaWhatsapp",
+
+        "footerWhatsapp",
+
+        "footerWhatsappText"
 
     ];
 
@@ -347,7 +337,44 @@ function setupWhatsAppButtons() {
 
             event.preventDefault();
 
-            openFoundationWhatsApp();
+
+            let message =
+                "Assalam o Alaikum, I want to contact AJK Blood Foundation.";
+
+
+            if (id === "emergencyWhatsapp") {
+
+                message =
+                    "Assalam o Alaikum, I need urgent blood support. Please guide me.";
+
+            }
+
+
+            if (id === "donorWhatsapp") {
+
+                message =
+                    "Assalam o Alaikum, I want to contact AJK Blood Foundation regarding blood donation and support.";
+
+            }
+
+
+            if (id === "heroWhatsapp") {
+
+                message =
+                    "Assalam o Alaikum, I want to contact AJK Blood Foundation.";
+
+            }
+
+
+            if (id === "ctaWhatsapp") {
+
+                message =
+                    "Assalam o Alaikum, I want to learn more about AJK Blood Foundation.";
+
+            }
+
+
+            openFoundationWhatsApp(message);
 
         });
 
@@ -363,7 +390,7 @@ function setupWhatsAppButtons() {
 function openFoundationWhatsApp(message = "") {
 
     /*
-       Number abhi intentionally blank hai.
+       Number intentionally blank for now.
     */
 
     if (!FOUNDATION_WHATSAPP_NUMBER) {
@@ -436,9 +463,7 @@ function setupBloodSearch() {
         !bloodGroup ||
         !area
     ) {
-
         return;
-
     }
 
 
@@ -486,9 +511,7 @@ function performBloodSearch() {
         !areaElement ||
         !resultsContainer
     ) {
-
         return;
-
     }
 
 
@@ -497,9 +520,9 @@ function performBloodSearch() {
 
 
     const area =
-        areaElement.value
-            .trim()
-            .toLowerCase();
+        normalizeText(
+            areaElement.value
+        );
 
 
     /* Require at least one filter */
@@ -533,10 +556,9 @@ function performBloodSearch() {
 
 
     /*
-       IMPORTANT:
-
-       Sirf woh donors search mein appear honge
-       jo 3 calendar months complete kar chuke hain.
+       Sirf woh donors appear honge
+       jinke case close hone ke 3 calendar months
+       complete ho chuke hain.
     */
 
     const availableDonors =
@@ -657,6 +679,18 @@ function createDonorCard(donor) {
         escapeHTML(donor.bloodGroup);
 
 
+    const jsName =
+        escapeJS(donor.name);
+
+
+    const jsBloodGroup =
+        escapeJS(donor.bloodGroup);
+
+
+    const jsArea =
+        escapeJS(donor.area);
+
+
     return `
 
         <article class="donor-card">
@@ -664,9 +698,7 @@ function createDonorCard(donor) {
             <div class="donor-card-top">
 
                 <div class="donor-blood">
-
                     ${safeBloodGroup}
-
                 </div>
 
 
@@ -718,7 +750,7 @@ function createDonorCard(donor) {
                     <i class="fa-solid fa-circle-check"></i>
 
                     <span>
-                        Donor Available
+                        Available Now
                     </span>
 
                 </div>
@@ -731,7 +763,7 @@ function createDonorCard(donor) {
                 <button
                     type="button"
                     class="donor-contact"
-                    onclick="contactDonorViaFoundation('${escapeJS(donor.name)}', '${escapeJS(donor.bloodGroup)}', '${escapeJS(donor.area)}')"
+                    onclick="contactDonorViaFoundation('${jsName}', '${jsBloodGroup}', '${jsArea}')"
                 >
 
                     <i class="fa-brands fa-whatsapp"></i>
@@ -766,7 +798,7 @@ Donor Name: ${donorName}
 Blood Group: ${bloodGroup}
 Area: ${area}
 
-Please help me connect with the donor.`;
+Please help me with this blood requirement.`;
 
 
     openFoundationWhatsApp(message);
@@ -777,10 +809,6 @@ Please help me connect with the donor.`;
 /* =========================================================
    DONOR STATUS CALCULATION
 =========================================================
-
-   IMPORTANT:
-
-   3 MONTHS = calendar months
 
    Example:
 
@@ -953,9 +981,7 @@ function parseLocalDate(dateString) {
             date.getTime()
         )
     ) {
-
         return null;
-
     }
 
 
@@ -1036,9 +1062,7 @@ function formatDate(dateString) {
 
 
     if (!date) {
-
         return "Not available";
-
     }
 
 
@@ -1303,9 +1327,7 @@ function addDonorCardStyles() {
             "dynamicDonorStyles"
         )
     ) {
-
         return;
-
     }
 
 
@@ -1605,31 +1627,6 @@ function addDonorCardStyles() {
 
             background:
                 #16a34a;
-
-        }
-
-
-        .donor-unavailable {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 7px;
-
-            min-height: 43px;
-
-            border-radius: 10px;
-
-            color:
-                rgba(255,255,255,0.5);
-
-            background:
-                rgba(0,0,0,0.15);
-
-            font-size: 9px;
 
         }
 
