@@ -15,15 +15,24 @@
 
     <meta name="author" content="AJK Blood Foundation">
 
-    <!-- Google Font -->
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="AJK Blood Foundation | Every Drop Gives Hope">
+    <meta property="og:description"
+        content="Connecting blood donors with patients in need across AJK and Pakistan.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet"
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- Main CSS -->
@@ -32,51 +41,59 @@
 
 <body>
 
-    <!-- =========================================
+    <!-- =========================
          TOP BAR
-    ========================================== -->
-
+    ========================== -->
     <div class="top-bar">
         <div class="container top-bar-inner">
 
-            <div class="top-message">
-                <i class="fa-solid fa-heart-pulse"></i>
-                Serving Thalassemia Children & Emergency Patients
+            <div class="top-left">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    AJK & Pakistan
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    Every Drop Gives Hope
+                </span>
             </div>
 
-            <a href="mailto:ajkbloodfoundation@gmail.com" class="top-email">
-                <i class="fa-solid fa-envelope"></i>
-                ajkbloodfoundation@gmail.com
-            </a>
+            <div class="top-right">
+                <span>
+                    <i class="fa-solid fa-clock"></i>
+                    Available for Emergency Support
+                </span>
+            </div>
 
         </div>
     </div>
 
 
-    <!-- =========================================
+    <!-- =========================
          HEADER / NAVIGATION
-    ========================================== -->
-
-    <header class="main-header" id="mainHeader">
+    ========================== -->
+    <header class="header" id="header">
 
         <div class="container nav-container">
 
-            <a href="#home" class="brand">
-
-                <div class="brand-mark">
+            <a href="#home" class="logo">
+                <span class="logo-icon">
                     <i class="fa-solid fa-droplet"></i>
-                </div>
+                </span>
 
-                <div class="brand-text">
-                    <span class="brand-main">AJK BLOOD</span>
-                    <span class="brand-sub">FOUNDATION</span>
-                </div>
-
+                <span class="logo-text">
+                    <strong>AJK</strong>
+                    <small>BLOOD FOUNDATION</small>
+                </span>
             </a>
 
 
-            <button class="mobile-menu-btn" id="mobileMenuBtn"
-                aria-label="Open Menu">
+            <button
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Open Menu"
+                type="button">
 
                 <i class="fa-solid fa-bars"></i>
 
@@ -85,23 +102,26 @@
 
             <nav class="nav-menu" id="navMenu">
 
-                <a href="#home" class="nav-link active">Home</a>
+                <a href="#home">Home</a>
 
-                <a href="#about" class="nav-link">About</a>
+                <a href="#about">About</a>
 
-                <a href="#mission" class="nav-link">Our Mission</a>
+                <a href="#find-blood">Find Blood</a>
 
-                <a href="#find-blood" class="nav-link">Find Blood</a>
+                <a href="#mission">Mission</a>
 
-                <a href="#emergency" class="nav-link">Emergency</a>
+                <a href="#thalassemia">Thalassemia</a>
 
-                <a href="#donate" class="nav-link">Donate</a>
+                <a href="#contact">Contact</a>
 
-                <a href="#contact" class="nav-link">Contact</a>
+                <a
+                    href="#"
+                    class="nav-whatsapp"
+                    id="navWhatsapp">
 
-                <a href="#" class="nav-whatsapp" id="navWhatsapp">
                     <i class="fa-brands fa-whatsapp"></i>
-                    Join WhatsApp
+                    WhatsApp Foundation
+
                 </a>
 
             </nav>
@@ -111,63 +131,53 @@
     </header>
 
 
+    <!-- =========================
+         HERO
+    ========================== -->
     <main>
 
+        <section class="hero" id="home">
 
-        <!-- =========================================
-             HERO SECTION
-        ========================================== -->
-
-        <section class="hero-section" id="home">
-
-            <div class="hero-glow hero-glow-one"></div>
-            <div class="hero-glow hero-glow-two"></div>
-
-            <div class="container hero-container">
+            <div class="container hero-grid">
 
                 <div class="hero-content">
 
                     <div class="eyebrow">
-
-                        <span class="eyebrow-line"></span>
-
-                        <span>
-                            AJK's Community Blood Network
-                        </span>
-
+                        <span></span>
+                        AJK BLOOD FOUNDATION
                     </div>
-
 
                     <h1>
                         Every Drop
                         <span>Gives Hope.</span>
                     </h1>
 
-
-                    <p class="hero-description">
-                        Connecting generous blood donors with
-                        thalassemia children and emergency patients.
-                        Together, we can turn every donation into a
-                        chance at life.
+                    <p>
+                        Connecting blood donors with thalassemia children,
+                        emergency patients and families in need across
+                        AJK and Pakistan.
                     </p>
 
 
                     <div class="hero-buttons">
 
-                        <a href="#find-blood" class="btn btn-primary">
+                        <a
+                            href="#find-blood"
+                            class="btn btn-primary">
 
-                            <span>Find Blood</span>
-
-                            <i class="fa-solid fa-arrow-right"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Find Blood
 
                         </a>
 
 
-                        <a href="#donate" class="btn btn-outline">
+                        <a
+                            href="#"
+                            class="btn btn-outline"
+                            id="heroWhatsapp">
 
-                            <i class="fa-solid fa-droplet"></i>
-
-                            <span>Become a Donor</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            Contact Foundation
 
                         </a>
 
@@ -177,85 +187,64 @@
                     <div class="hero-trust">
 
                         <div class="trust-item">
-
-                            <div class="trust-icon">
-                                <i class="fa-solid fa-shield-heart"></i>
-                            </div>
+                            <i class="fa-solid fa-shield-heart"></i>
 
                             <div>
-                                <strong>Community Driven</strong>
-                                <span>Built for people</span>
+                                <strong>Trusted Support</strong>
+                                <span>For patients in need</span>
                             </div>
-
                         </div>
 
 
-                        <div class="trust-divider"></div>
-
-
                         <div class="trust-item">
-
-                            <div class="trust-icon">
-                                <i class="fa-solid fa-hand-holding-heart"></i>
-                            </div>
+                            <i class="fa-solid fa-hand-holding-heart"></i>
 
                             <div>
-                                <strong>Free Blood Support</strong>
-                                <span>When it matters</span>
+                                <strong>Real Impact</strong>
+                                <span>Every donation matters</span>
                             </div>
-
                         </div>
 
                     </div>
 
                 </div>
 
-
-                <!-- HERO VISUAL -->
 
                 <div class="hero-visual">
 
                     <div class="hero-circle"></div>
 
-                    <div class="blood-drop-large">
-
-                        <div class="drop-shine"></div>
-
+                    <div class="blood-drop-main">
                         <i class="fa-solid fa-droplet"></i>
-
                     </div>
 
 
-                    <div class="hero-card hero-card-top">
+                    <div class="floating-card card-one">
 
-                        <div class="mini-icon">
-                            <i class="fa-solid fa-heart"></i>
+                        <div class="floating-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
                         </div>
 
                         <div>
-                            <strong>Give Hope</strong>
-                            <span>Save a life today</span>
+                            <strong>Save Lives</strong>
+                            <span>One donation at a time</span>
                         </div>
 
                     </div>
 
 
-                    <div class="hero-card hero-card-bottom">
+                    <div class="floating-card card-two">
 
-                        <div class="mini-icon">
+                        <div class="floating-icon">
                             <i class="fa-solid fa-users"></i>
                         </div>
 
                         <div>
-                            <strong>Donor Network</strong>
-                            <span>Community connected</span>
+                            <strong>Community</strong>
+                            <span>United for humanity</span>
                         </div>
 
                     </div>
-
-
-                    <div class="hero-orbit orbit-one"></div>
-                    <div class="hero-orbit orbit-two"></div>
 
                 </div>
 
@@ -264,35 +253,12 @@
         </section>
 
 
-        <!-- =========================================
-             STATISTICS
-        ========================================== -->
-
+        <!-- =========================
+             STATS
+        ========================== -->
         <section class="stats-section">
 
             <div class="container stats-grid">
-
-
-                <div class="stat-card">
-
-                    <div class="stat-icon">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
-
-                    <div class="stat-info">
-
-                        <span class="stat-number" data-target="0">
-                            0+
-                        </span>
-
-                        <span class="stat-label">
-                            Registered Donors
-                        </span>
-
-                    </div>
-
-                </div>
-
 
                 <div class="stat-card">
 
@@ -300,17 +266,11 @@
                         <i class="fa-solid fa-droplet"></i>
                     </div>
 
-                    <div class="stat-info">
+                    <strong class="stat-number" data-target="1000">
+                        0+
+                    </strong>
 
-                        <span class="stat-number" data-target="0">
-                            0+
-                        </span>
-
-                        <span class="stat-label">
-                            Blood Donations
-                        </span>
-
-                    </div>
+                    <span>Lives Supported</span>
 
                 </div>
 
@@ -318,20 +278,14 @@
                 <div class="stat-card">
 
                     <div class="stat-icon">
-                        <i class="fa-solid fa-child"></i>
+                        <i class="fa-solid fa-user-group"></i>
                     </div>
 
-                    <div class="stat-info">
+                    <strong class="stat-number" data-target="500">
+                        0+
+                    </strong>
 
-                        <span class="stat-number" data-target="0">
-                            0+
-                        </span>
-
-                        <span class="stat-label">
-                            Children Supported
-                        </span>
-
-                    </div>
+                    <span>Donors Connected</span>
 
                 </div>
 
@@ -339,20 +293,29 @@
                 <div class="stat-card">
 
                     <div class="stat-icon">
-                        <i class="fa-solid fa-handshake-angle"></i>
+                        <i class="fa-solid fa-heart"></i>
                     </div>
 
-                    <div class="stat-info">
+                    <strong class="stat-number" data-target="100">
+                        0+
+                    </strong>
 
-                        <span class="stat-number" data-target="0">
-                            0+
-                        </span>
+                    <span>Emergency Cases</span>
 
-                        <span class="stat-label">
-                            Emergency Cases
-                        </span>
+                </div>
 
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-location-dot"></i>
                     </div>
+
+                    <strong class="stat-number" data-target="10">
+                        0+
+                    </strong>
+
+                    <span>Areas Connected</span>
 
                 </div>
 
@@ -361,82 +324,49 @@
         </section>
 
 
-        <!-- =========================================
-             ABOUT SECTION
-        ========================================== -->
-
+        <!-- =========================
+             ABOUT
+        ========================== -->
         <section class="section about-section" id="about">
 
             <div class="container about-grid">
 
+                <div class="section-image">
 
-                <div class="about-visual">
+                    <div class="image-card">
 
-                    <div class="about-frame">
-
-                        <div class="about-blood-symbol">
-                            <i class="fa-solid fa-droplet"></i>
+                        <div class="image-icon">
+                            <i class="fa-solid fa-hand-holding-medical"></i>
                         </div>
 
-                        <div class="about-frame-text">
-
-                            <span>ONE DONATION</span>
-
-                            <strong>CAN MAKE</strong>
-
-                            <span>A DIFFERENCE</span>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="about-badge">
-
-                        <i class="fa-solid fa-heart-pulse"></i>
-
-                        <div>
-
-                            <strong>Life First</strong>
-
-                            <span>People before everything</span>
-
-                        </div>
+                        <span>Humanity First</span>
 
                     </div>
 
                 </div>
 
 
-                <div class="about-content">
+                <div class="section-content">
 
-                    <div class="section-eyebrow">
-                        ABOUT OUR FOUNDATION
+                    <div class="section-label">
+                        ABOUT FOUNDATION
                     </div>
 
-
                     <h2>
-                        A community built
-                        <span>around hope.</span>
+                        Blood Donation Is
+                        <span>A Gift of Life.</span>
                     </h2>
 
-
-                    <p class="lead-text">
-
-                        AJK Blood Foundation is a community-focused
-                        initiative created to connect blood donors with
-                        people who need blood during difficult moments.
-
+                    <p>
+                        AJK Blood Foundation is a community-focused initiative
+                        working to connect people who need blood with those
+                        willing to help.
                     </p>
 
-
                     <p>
-
-                        Our vision is simple: make it easier to find
-                        compatible blood donors, support thalassemia
-                        children, and respond to emergency blood
-                        requirements through a trusted community network.
-
+                        Our purpose is simple: make blood support easier,
+                        faster and more accessible for families facing
+                        emergencies and for children living with thalassemia.
                     </p>
 
 
@@ -444,57 +374,52 @@
 
                         <div class="about-point">
 
-                            <i class="fa-solid fa-check"></i>
+                            <i class="fa-solid fa-circle-check"></i>
 
-                            <span>
-                                Connecting donors with patients
-                            </span>
-
-                        </div>
-
-
-                        <div class="about-point">
-
-                            <i class="fa-solid fa-check"></i>
-
-                            <span>
-                                Supporting thalassemia families
-                            </span>
+                            <div>
+                                <strong>Emergency Support</strong>
+                                <span>Helping families during urgent situations.</span>
+                            </div>
 
                         </div>
 
 
                         <div class="about-point">
 
-                            <i class="fa-solid fa-check"></i>
+                            <i class="fa-solid fa-circle-check"></i>
 
-                            <span>
-                                Helping during emergencies
-                            </span>
+                            <div>
+                                <strong>Donor Network</strong>
+                                <span>Connecting donors with people in need.</span>
+                            </div>
 
                         </div>
 
 
                         <div class="about-point">
 
-                            <i class="fa-solid fa-check"></i>
+                            <i class="fa-solid fa-circle-check"></i>
 
-                            <span>
-                                Building a stronger donor community
-                            </span>
+                            <div>
+                                <strong>Community Service</strong>
+                                <span>Building a stronger culture of donation.</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="about-point">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            <div>
+                                <strong>Thalassemia Support</strong>
+                                <span>Supporting patients who need regular blood.</span>
+                            </div>
 
                         </div>
 
                     </div>
-
-
-                    <a href="#mission" class="text-link">
-
-                        Discover Our Mission
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
 
                 </div>
 
@@ -503,28 +428,27 @@
         </section>
 
 
-        <!-- =========================================
-             MISSION SECTION
-        ========================================== -->
-
+        <!-- =========================
+             MISSION
+        ========================== -->
         <section class="section mission-section" id="mission">
 
             <div class="container">
 
                 <div class="section-heading center">
 
-                    <div class="section-eyebrow">
-                        WHAT WE DO
+                    <div class="section-label">
+                        OUR MISSION
                     </div>
 
                     <h2>
-                        Our Mission Is
-                        <span>Life.</span>
+                        Together We Can
+                        <span>Save More Lives.</span>
                     </h2>
 
                     <p>
-                        Creating a reliable community network where
-                        blood can reach people when they need it most.
+                        A community where no patient has to wait helplessly
+                        for the blood they urgently need.
                     </p>
 
                 </div>
@@ -532,113 +456,52 @@
 
                 <div class="mission-grid">
 
-
-                    <article class="mission-card featured">
-
-                        <div class="mission-number">
-                            01
-                        </div>
+                    <div class="mission-card">
 
                         <div class="mission-icon">
-                            <i class="fa-solid fa-child-reaching"></i>
+                            <i class="fa-solid fa-bolt"></i>
                         </div>
 
-                        <h3>
-                            Thalassemia Support
-                        </h3>
+                        <h3>Fast Response</h3>
 
                         <p>
-                            Supporting children and families who
-                            regularly depend on blood transfusions.
+                            Helping connect urgent blood requirements
+                            with available donor information.
                         </p>
 
-                        <a href="#contact">
-                            Learn More
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
+                    </div>
 
 
-                    <article class="mission-card">
-
-                        <div class="mission-number">
-                            02
-                        </div>
+                    <div class="mission-card featured">
 
                         <div class="mission-icon">
-                            <i class="fa-solid fa-users"></i>
+                            <i class="fa-solid fa-people-group"></i>
                         </div>
 
-                        <h3>
-                            Donor Network
-                        </h3>
+                        <h3>Community Network</h3>
 
                         <p>
-                            Building a searchable network of
-                            voluntary blood donors across communities.
+                            Bringing volunteers, donors, families and
+                            supporters together for a common purpose.
                         </p>
 
-                        <a href="#find-blood">
-                            Find Blood
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
+                    </div>
 
 
-                    <article class="mission-card">
-
-                        <div class="mission-number">
-                            03
-                        </div>
+                    <div class="mission-card">
 
                         <div class="mission-icon">
-                            <i class="fa-solid fa-truck-medical"></i>
+                            <i class="fa-solid fa-heart-pulse"></i>
                         </div>
 
-                        <h3>
-                            Emergency Support
-                        </h3>
+                        <h3>Hope & Humanity</h3>
 
                         <p>
-                            Helping families connect with potential
-                            donors during urgent situations.
+                            Every effort is focused on helping people
+                            during some of life's most difficult moments.
                         </p>
 
-                        <a href="#emergency">
-                            Emergency Help
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
-
-
-                    <article class="mission-card">
-
-                        <div class="mission-number">
-                            04
-                        </div>
-
-                        <div class="mission-icon">
-                            <i class="fa-solid fa-bullhorn"></i>
-                        </div>
-
-                        <h3>
-                            Awareness
-                        </h3>
-
-                        <p>
-                            Encouraging responsible blood donation
-                            and stronger community participation.
-                        </p>
-
-                        <a href="#donate">
-                            Become a Donor
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </article>
+                    </div>
 
                 </div>
 
@@ -647,123 +510,154 @@
         </section>
 
 
-        <!-- =========================================
-             FIND BLOOD SECTION
-        ========================================== -->
-
+        <!-- =========================
+             FIND BLOOD
+        ========================== -->
         <section class="section find-blood-section" id="find-blood">
 
             <div class="container">
 
+                <div class="section-heading center">
 
-                <div class="section-heading center light">
-
-                    <div class="section-eyebrow">
-                        DONOR DIRECTORY
+                    <div class="section-label">
+                        FIND BLOOD
                     </div>
 
                     <h2>
-                        Find Blood
-                        <span>Near You.</span>
+                        Search Our
+                        <span>Donor Network.</span>
                     </h2>
 
                     <p>
-                        Search the available donor network by blood
-                        group and area.
+                        Search by blood group and area to find donors
+                        who are currently available.
                     </p>
 
                 </div>
 
 
-                <div class="blood-search-box">
+                <div class="blood-search-card">
 
+                    <div class="search-header">
 
-                    <div class="search-field">
+                        <div>
+                            <span class="search-title">
+                                Find an Available Donor
+                            </span>
 
-                        <label for="bloodGroup">
-                            Blood Group
-                        </label>
+                            <p>
+                                Select a blood group and enter an area.
+                            </p>
+                        </div>
 
-                        <div class="input-wrapper">
-
-                            <i class="fa-solid fa-droplet"></i>
-
-                            <select id="bloodGroup">
-
-                                <option value="">
-                                    Select Blood Group
-                                </option>
-
-                                <option value="A+">A+</option>
-                                <option value="A-">A-</option>
-
-                                <option value="B+">B+</option>
-                                <option value="B-">B-</option>
-
-                                <option value="AB+">AB+</option>
-                                <option value="AB-">AB-</option>
-
-                                <option value="O+">O+</option>
-                                <option value="O-">O-</option>
-
-                            </select>
-
+                        <div class="search-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
 
                     </div>
 
 
-                    <div class="search-field">
+                    <div class="search-form">
 
-                        <label for="area">
-                            Area / Location
-                        </label>
+                        <div class="form-group">
 
-                        <div class="input-wrapper">
+                            <label for="bloodGroup">
+                                Blood Group
+                            </label>
 
-                            <i class="fa-solid fa-location-dot"></i>
+                            <div class="input-wrapper">
 
-                            <input
-                                type="text"
-                                id="area"
-                                placeholder="e.g. Bagh, Rawalpindi, Muzaffarabad"
-                            >
+                                <i class="fa-solid fa-droplet"></i>
+
+                                <select id="bloodGroup">
+
+                                    <option value="">
+                                        Select Blood Group
+                                    </option>
+
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+
+                                </select>
+
+                            </div>
 
                         </div>
+
+
+                        <div class="form-group">
+
+                            <label for="area">
+                                Area
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                <input
+                                    type="text"
+                                    id="area"
+                                    placeholder="e.g. Bagh, Rawalpindi, Muzaffarabad">
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary search-btn"
+                            id="searchDonors">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Search Donors
+
+                        </button>
 
                     </div>
 
 
-                    <button class="btn btn-white search-btn"
-                        id="searchDonors">
+                    <!-- Results -->
+                    <div
+                        class="donor-results"
+                        id="donorResults">
 
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <div class="empty-results">
 
-                        Search Donors
+                            <div class="empty-icon">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
 
-                    </button>
+                            <h3>Search the Donor Network</h3>
+
+                            <p>
+                                Select a blood group and enter an area
+                                to search available donors.
+                            </p>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
 
-                <div class="search-result-area" id="donorResults">
+                <div class="blood-note">
 
-                    <div class="empty-results">
+                    <i class="fa-solid fa-circle-info"></i>
 
-                        <div class="empty-icon">
-                            <i class="fa-solid fa-droplet"></i>
-                        </div>
-
-                        <h3>
-                            Search the Donor Network
-                        </h3>
-
-                        <p>
-                            Select a blood group and location to
-                            find available donors.
-                        </p>
-
-                    </div>
+                    <p>
+                        Donor availability is managed according to the
+                        recorded case-close/donation date. A donor becomes
+                        searchable again after the required recovery period.
+                    </p>
 
                 </div>
 
@@ -772,57 +666,49 @@
         </section>
 
 
-        <!-- =========================================
-             EMERGENCY SECTION
-        ========================================== -->
-
+        <!-- =========================
+             EMERGENCY
+        ========================== -->
         <section class="section emergency-section" id="emergency">
 
-            <div class="container emergency-grid">
-
+            <div class="container emergency-inner">
 
                 <div class="emergency-content">
 
-                    <div class="emergency-label">
-
-                        <span class="pulse-dot"></span>
-
+                    <div class="section-label">
                         EMERGENCY BLOOD SUPPORT
-
                     </div>
 
-
                     <h2>
-                        Someone needs blood
-                        <span>right now?</span>
+                        Need Blood
+                        <span>Urgently?</span>
                     </h2>
 
-
                     <p>
-                        In an emergency, every minute matters.
-                        Share the blood requirement with the
-                        community and help connect with potential donors.
+                        If you or someone you know needs urgent blood
+                        support, contact AJK Blood Foundation directly.
                     </p>
 
 
-                    <div class="emergency-actions">
+                    <div class="emergency-buttons">
 
-                        <a href="#" class="btn btn-primary"
+                        <a
+                            href="#"
+                            class="btn btn-primary"
                             id="emergencyWhatsapp">
 
                             <i class="fa-brands fa-whatsapp"></i>
-
                             Request Blood
 
                         </a>
 
 
-                        <a href="mailto:ajkbloodfoundation@gmail.com"
-                            class="btn btn-dark">
+                        <a
+                            href="#find-blood"
+                            class="btn btn-light">
 
-                            <i class="fa-solid fa-envelope"></i>
-
-                            Email Foundation
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Find a Donor
 
                         </a>
 
@@ -831,73 +717,11 @@
                 </div>
 
 
-                <div class="emergency-panel">
+                <div class="emergency-icon-large">
 
-                    <div class="panel-top">
+                    <i class="fa-solid fa-heart-pulse"></i>
 
-                        <div>
-
-                            <span class="panel-label">
-                                EMERGENCY REQUEST
-                            </span>
-
-                            <h3>
-                                Blood Needed?
-                            </h3>
-
-                        </div>
-
-                        <div class="emergency-icon">
-                            <i class="fa-solid fa-truck-medical"></i>
-                        </div>
-
-                    </div>
-
-
-                    <div class="emergency-steps">
-
-                        <div class="emergency-step">
-
-                            <span>01</span>
-
-                            <div>
-                                <strong>Share Requirement</strong>
-                                <p>
-                                    Tell us the blood group and area.
-                                </p>
-                            </div>
-
-                        </div>
-
-
-                        <div class="emergency-step">
-
-                            <span>02</span>
-
-                            <div>
-                                <strong>Community Alert</strong>
-                                <p>
-                                    Connect with potential donors.
-                                </p>
-                            </div>
-
-                        </div>
-
-
-                        <div class="emergency-step">
-
-                            <span>03</span>
-
-                            <div>
-                                <strong>Coordinate</strong>
-                                <p>
-                                    Donor and patient coordinate safely.
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <span>HELP SAVE A LIFE</span>
 
                 </div>
 
@@ -906,102 +730,58 @@
         </section>
 
 
-        <!-- =========================================
-             DONATE SECTION
-        ========================================== -->
-
+        <!-- =========================
+             DONATE / HELP
+        ========================== -->
         <section class="section donate-section" id="donate">
 
-            <div class="container donate-container">
-
-
-                <div class="donate-content">
-
-                    <div class="section-eyebrow">
-                        BECOME PART OF THE NETWORK
-                    </div>
-
-
-                    <h2>
-                        Your blood could be
-                        <span>someone's tomorrow.</span>
-                    </h2>
-
-
-                    <p>
-                        Join our donor community and help make
-                        blood available to people who need it.
-                    </p>
-
-
-                    <div class="donate-points">
-
-                        <div>
-
-                            <i class="fa-solid fa-heart"></i>
-
-                            <span>
-                                Help families in difficult moments
-                            </span>
-
-                        </div>
-
-
-                        <div>
-
-                            <i class="fa-solid fa-users"></i>
-
-                            <span>
-                                Become part of a caring community
-                            </span>
-
-                        </div>
-
-
-                        <div>
-
-                            <i class="fa-solid fa-calendar-check"></i>
-
-                            <span>
-                                Keep track of your donation history
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <a href="#" class="btn btn-primary"
-                        id="donorWhatsapp">
-
-                        <i class="fa-brands fa-whatsapp"></i>
-
-                        Register as a Donor
-
-                    </a>
-
-                </div>
-
+            <div class="container donate-grid">
 
                 <div class="donate-visual">
 
                     <div class="donate-circle">
 
                         <div class="donate-drop">
-
                             <i class="fa-solid fa-droplet"></i>
-
                         </div>
 
-                        <span class="circle-text">
+                        <strong>
                             GIVE
-                        </span>
-
-                        <span class="circle-text circle-text-two">
-                            HOPE
-                        </span>
+                            <span>HOPE</span>
+                        </strong>
 
                     </div>
+
+                </div>
+
+
+                <div class="section-content">
+
+                    <div class="section-label">
+                        SUPPORT HUMANITY
+                    </div>
+
+                    <h2>
+                        Your Support Can
+                        <span>Make a Difference.</span>
+                    </h2>
+
+                    <p>
+                        Whether you need blood support, want to help a
+                        patient, or simply want to learn more about our
+                        work, contact AJK Blood Foundation.
+                    </p>
+
+
+                    <a
+                        href="#"
+                        class="btn btn-primary"
+                        id="donorWhatsapp">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Contact Foundation
+
+                    </a>
 
                 </div>
 
@@ -1010,75 +790,130 @@
         </section>
 
 
-        <!-- =========================================
-             THALASSEMIA SECTION
-        ========================================== -->
+        <!-- =========================
+             THALASSEMIA
+        ========================== -->
+        <section class="section thal-section" id="thalassemia">
 
-        <section class="thal-section">
+            <div class="container thal-grid">
 
-            <div class="container thal-container">
+                <div class="section-content">
 
-
-                <div class="thal-icon">
-
-                    <i class="fa-solid fa-child"></i>
-
-                </div>
-
-
-                <div class="thal-content">
-
-                    <div class="section-eyebrow">
-                        THALASSEMIA CARE
+                    <div class="section-label">
+                        THALASSEMIA AWARENESS
                     </div>
 
                     <h2>
-                        Standing beside
-                        <span>every child.</span>
+                        Standing With
+                        <span>Thalassemia Families.</span>
                     </h2>
 
                     <p>
                         Children living with thalassemia may require
-                        regular transfusion support. Our community
-                        network aims to make donor connections easier
-                        for families when support is needed.
+                        regular blood transfusions. Reliable donor
+                        support can make a meaningful difference in
+                        their lives.
                     </p>
+
+
+                    <div class="thal-points">
+
+                        <div class="thal-point">
+
+                            <span class="point-number">01</span>
+
+                            <div>
+                                <strong>Regular Blood Needs</strong>
+
+                                <p>
+                                    Patients may need ongoing transfusion
+                                    support throughout their treatment.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="thal-point">
+
+                            <span class="point-number">02</span>
+
+                            <div>
+                                <strong>Community Support</strong>
+
+                                <p>
+                                    A strong donor community helps families
+                                    during difficult times.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="thal-point">
+
+                            <span class="point-number">03</span>
+
+                            <div>
+                                <strong>Spread Awareness</strong>
+
+                                <p>
+                                    Learn, share and encourage responsible
+                                    blood donation in your community.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
 
-                <a href="#contact" class="btn btn-white">
-                    Support Our Mission
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <div class="thal-visual">
+
+                    <div class="thal-card">
+
+                        <i class="fa-solid fa-heart"></i>
+
+                        <strong>
+                            Hope
+                        </strong>
+
+                        <span>
+                            Through every drop
+                        </span>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- =========================================
+        <!-- =========================
              HOW IT WORKS
-        ========================================== -->
-
+        ========================== -->
         <section class="section process-section">
 
             <div class="container">
 
                 <div class="section-heading center">
 
-                    <div class="section-eyebrow">
-                        SIMPLE. CONNECTED. HUMAN.
+                    <div class="section-label">
+                        HOW IT WORKS
                     </div>
 
                     <h2>
-                        How It
-                        <span>Works.</span>
+                        Simple. Clear.
+                        <span>Purposeful.</span>
                     </h2>
 
                     <p>
-                        A simple community process designed around
-                        helping people connect.
+                        Our donor information process is designed to
+                        keep availability records organized.
                     </p>
 
                 </div>
@@ -1086,36 +921,57 @@
 
                 <div class="process-grid">
 
-
-                    <div class="process-item">
+                    <div class="process-card">
 
                         <div class="process-number">
                             01
                         </div>
 
                         <div class="process-icon">
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-user-check"></i>
                         </div>
 
                         <h3>
-                            Donor Registers
+                            Donor Case Recorded
                         </h3>
 
                         <p>
-                            Donor information and donation history
-                            are recorded in the system.
+                            When a blood case is closed, the donor's
+                            name, blood group, area, phone number and
+                            donation date can be recorded for future
+                            availability tracking.
                         </p>
 
                     </div>
 
 
-                    <div class="process-line"></div>
-
-
-                    <div class="process-item">
+                    <div class="process-card">
 
                         <div class="process-number">
                             02
+                        </div>
+
+                        <div class="process-icon">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+
+                        <h3>
+                            Recovery Period
+                        </h3>
+
+                        <p>
+                            After the case is closed, the donor remains
+                            unavailable in the public search during the
+                            required three-month period.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-card">
+
+                        <div class="process-number">
+                            03
                         </div>
 
                         <div class="process-icon">
@@ -1123,37 +979,13 @@
                         </div>
 
                         <h3>
-                            Blood Is Searched
+                            Available Again
                         </h3>
 
                         <p>
-                            Search by blood group and area to find
-                            potential available donors.
-                        </p>
-
-                    </div>
-
-
-                    <div class="process-line"></div>
-
-
-                    <div class="process-item">
-
-                        <div class="process-number">
-                            03
-                        </div>
-
-                        <div class="process-icon">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-
-                        <h3>
-                            People Connect
-                        </h3>
-
-                        <p>
-                            Donor and requester coordinate through
-                            the foundation's contact channels.
+                            Once three months have passed from the
+                            recorded case-close date, the donor can
+                            appear again in blood group and area searches.
                         </p>
 
                     </div>
@@ -1165,42 +997,39 @@
         </section>
 
 
-        <!-- =========================================
-             CALL TO ACTION
-        ========================================== -->
-
+        <!-- =========================
+             CTA
+        ========================== -->
         <section class="cta-section">
 
-            <div class="cta-pattern"></div>
+            <div class="container cta-inner">
 
-            <div class="container cta-content">
+                <div class="cta-content">
 
-                <div class="cta-icon">
-
-                    <i class="fa-solid fa-heart-pulse"></i>
-
-                </div>
-
-
-                <div>
-
-                    <span class="cta-small">
-                        TOGETHER WE CAN DO MORE
-                    </span>
+                    <div class="section-label">
+                        JOIN THE CAUSE
+                    </div>
 
                     <h2>
-                        One community.
-                        <span>Countless lives.</span>
+                        Together,
+                        <span>We Give Hope.</span>
                     </h2>
+
+                    <p>
+                        Blood connects us all. Support the mission
+                        and help build a stronger community.
+                    </p>
 
                 </div>
 
 
-                <a href="#donate" class="btn btn-white">
+                <a
+                    href="#"
+                    class="btn btn-white"
+                    id="ctaWhatsapp">
 
-                    Become a Donor
-
-                    <i class="fa-solid fa-arrow-right"></i>
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Contact Foundation
 
                 </a>
 
@@ -1209,113 +1038,83 @@
         </section>
 
 
-        <!-- =========================================
-             CONTACT SECTION
-        ========================================== -->
-
+        <!-- =========================
+             CONTACT
+        ========================== -->
         <section class="section contact-section" id="contact">
 
-            <div class="container contact-grid">
+            <div class="container">
 
+                <div class="section-heading center">
 
-                <div class="contact-content">
-
-                    <div class="section-eyebrow">
+                    <div class="section-label">
                         GET IN TOUCH
                     </div>
 
-
                     <h2>
-                        Let's build a
-                        <span>stronger community.</span>
+                        Contact
+                        <span>AJK Blood Foundation.</span>
                     </h2>
 
-
                     <p>
-                        Have a question, want to register as a donor,
-                        or need support? Contact AJK Blood Foundation.
+                        Have a question, need blood support, or want to
+                        help someone in need? Contact AJK Blood Foundation.
                     </p>
-
-
-                    <div class="contact-details">
-
-
-                        <a href="mailto:ajkbloodfoundation@gmail.com"
-                            class="contact-item">
-
-                            <div class="contact-icon">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-
-                            <div>
-
-                                <span>Email</span>
-
-                                <strong>
-                                    ajkbloodfoundation@gmail.com
-                                </strong>
-
-                            </div>
-
-                        </a>
-
-
-                        <a href="#" class="contact-item"
-                            id="contactWhatsapp">
-
-                            <div class="contact-icon whatsapp-icon">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </div>
-
-                            <div>
-
-                                <span>WhatsApp Community</span>
-
-                                <strong>
-                                    Join our WhatsApp Group
-                                </strong>
-
-                            </div>
-
-                        </a>
-
-
-                    </div>
 
                 </div>
 
 
-                <div class="contact-card">
+                <div class="contact-grid">
 
-                    <div class="contact-card-glow"></div>
+                    <a
+                        href="#"
+                        class="contact-item"
+                        id="contactWhatsapp">
+
+                        <div class="contact-icon whatsapp-icon">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+
+                        <div>
+                            <span>Foundation WhatsApp</span>
+                            <strong>Chat with AJK Blood Foundation</strong>
+                        </div>
+
+                        <i class="fa-solid fa-arrow-right contact-arrow"></i>
+
+                    </a>
 
 
-                    <div class="contact-card-icon">
+                    <a
+                        href="mailto:ajkbloodfoundation@gmail.com"
+                        class="contact-item">
 
-                        <i class="fa-solid fa-droplet"></i>
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+
+                        <div>
+                            <span>Email</span>
+                            <strong>ajkbloodfoundation@gmail.com</strong>
+                        </div>
+
+                        <i class="fa-solid fa-arrow-right contact-arrow"></i>
+
+                    </a>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <div>
+                            <span>Service Area</span>
+                            <strong>AJK & Pakistan</strong>
+                        </div>
 
                     </div>
-
-
-                    <span>
-                        AJK BLOOD FOUNDATION
-                    </span>
-
-
-                    <h3>
-                        Every Drop
-                        <br>
-                        Gives Hope.
-                    </h3>
-
-
-                    <div class="contact-card-line"></div>
-
-
-                    <p>
-                        Serving humanity through
-                        voluntary blood donation.
-                    </p>
 
                 </div>
 
@@ -1326,112 +1125,125 @@
     </main>
 
 
-    <!-- =========================================
+    <!-- =========================
          FOOTER
-    ========================================== -->
-
+    ========================== -->
     <footer class="footer">
 
-        <div class="container footer-main">
-
+        <div class="container footer-grid">
 
             <div class="footer-brand">
 
-                <a href="#home" class="brand footer-logo">
+                <a href="#home" class="logo footer-logo">
 
-                    <div class="brand-mark">
+                    <span class="logo-icon">
                         <i class="fa-solid fa-droplet"></i>
-                    </div>
+                    </span>
 
-                    <div class="brand-text">
-                        <span class="brand-main">AJK BLOOD</span>
-                        <span class="brand-sub">FOUNDATION</span>
-                    </div>
+                    <span class="logo-text">
+                        <strong>AJK</strong>
+                        <small>BLOOD FOUNDATION</small>
+                    </span>
 
                 </a>
 
 
                 <p>
-                    Connecting people, donors and hope —
-                    one drop at a time.
+                    Connecting humanity through blood donation,
+                    community support and hope.
                 </p>
 
 
-                <a href="mailto:ajkbloodfoundation@gmail.com"
-                    class="footer-email">
+                <div class="footer-social">
 
-                    ajkbloodfoundation@gmail.com
+                    <a
+                        href="#"
+                        id="footerWhatsapp"
+                        aria-label="WhatsApp">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Quick Links</h4>
+
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#find-blood">Find Blood</a>
+                <a href="#mission">Mission</a>
+                <a href="#thalassemia">Thalassemia</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Support</h4>
+
+                <a href="#emergency">Emergency Blood</a>
+                <a href="#find-blood">Find a Donor</a>
+
+                <a
+                    href="#"
+                    id="footerWhatsappText">
+
+                    WhatsApp Foundation
 
                 </a>
 
-            </div>
-
-
-            <div class="footer-links">
-
-                <h4>
-                    Explore
-                </h4>
-
-                <a href="#about">About Us</a>
-                <a href="#mission">Our Mission</a>
-                <a href="#find-blood">Find Blood</a>
-                <a href="#donate">Become a Donor</a>
+                <a href="#contact">Contact Us</a>
 
             </div>
 
 
-            <div class="footer-links">
+            <div class="footer-column">
 
-                <h4>
-                    Support
-                </h4>
+                <h4>Our Purpose</h4>
 
-                <a href="#emergency">Emergency Help</a>
-                <a href="#contact">Contact Foundation</a>
-                <a href="#">WhatsApp Community</a>
-
-            </div>
-
-
-            <div class="footer-links">
-
-                <h4>
-                    Our Focus
-                </h4>
-
-                <span>Blood Donation</span>
-                <span>Thalassemia Support</span>
-                <span>Emergency Response</span>
-                <span>Community Awareness</span>
+                <p>
+                    Helping connect blood donors with people
+                    who need support across AJK and Pakistan.
+                </p>
 
             </div>
 
         </div>
 
 
-        <div class="container footer-bottom">
+        <div class="footer-bottom">
 
-            <p>
-                © <span id="currentYear"></span>
-                AJK Blood Foundation. All rights reserved.
-            </p>
+            <div class="container footer-bottom-inner">
 
-            <p>
-                Built with <i class="fa-solid fa-heart"></i>
-                for the community.
-            </p>
+                <p>
+                    © <span id="currentYear"></span>
+                    AJK Blood Foundation. All Rights Reserved.
+                </p>
+
+                <p>
+                    Every Drop Gives Hope.
+                </p>
+
+            </div>
 
         </div>
 
     </footer>
 
 
-    <!-- =========================================
+    <!-- =========================
          FLOATING WHATSAPP
-    ========================================== -->
+    ========================== -->
 
-    <a href="#" class="floating-whatsapp"
+    <a
+        href="#"
+        class="floating-whatsapp"
         id="floatingWhatsapp"
         aria-label="WhatsApp">
 
@@ -1444,10 +1256,7 @@
     </a>
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
-
+    <!-- Main JavaScript -->
     <script src="script.js"></script>
 
 </body>
