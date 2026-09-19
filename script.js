@@ -5,26 +5,46 @@
 
 
 /* =========================================================
-   WHATSAPP CONFIGURATION
+   FOUNDATION WHATSAPP CONFIGURATION
 =========================================================
 
    IMPORTANT:
-   Later you will give me the official WhatsApp Group link.
-   We will put it here once, and all WhatsApp buttons
-   will automatically use it.
+   Abhi number blank hai.
+
+   Baad mein sirf is jagah official foundation WhatsApp
+   number add karna hoga.
+
+   Example:
+   const FOUNDATION_WHATSAPP_NUMBER = "923001234567";
+
+   Pakistan number mein:
+   03001234567
+   ko
+   923001234567
+   likhna hai.
+
+   +, spaces ya dashes nahi lagane.
 ========================================================= */
 
-const WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/EJmWJXXgRUw3DaioKnUbwj";
+const FOUNDATION_WHATSAPP_NUMBER = "";
 
 
 /* =========================================================
-   DEMO DONOR DATABASE
+   DEMO BLOOD CASE / DONOR DATABASE
 =========================================================
 
-   These are demo records for testing the website.
+   Har record mein:
 
-   Later we can replace these with a real database/admin
-   system where you can add donors yourself.
+   name          = donor ka naam
+   bloodGroup    = blood group
+   area          = area
+   phone         = donor ka phone
+   caseClosedDate = jis date par blood case close hua
+
+   IMPORTANT:
+   Case close hone ke 3 CALENDAR MONTHS ke baad donor
+   dobara available/searchable hoga.
+
 ========================================================= */
 
 const donors = [
@@ -35,7 +55,7 @@ const donors = [
         bloodGroup: "O+",
         area: "Bagh",
         phone: "03000000001",
-        lastDonation: "2026-05-20"
+        caseClosedDate: "2026-05-20"
     },
 
     {
@@ -44,7 +64,7 @@ const donors = [
         bloodGroup: "B+",
         area: "Rawalpindi",
         phone: "03000000002",
-        lastDonation: "2026-06-10"
+        caseClosedDate: "2026-06-10"
     },
 
     {
@@ -53,7 +73,7 @@ const donors = [
         bloodGroup: "A+",
         area: "Muzaffarabad",
         phone: "03000000003",
-        lastDonation: "2026-04-15"
+        caseClosedDate: "2026-04-15"
     },
 
     {
@@ -62,7 +82,7 @@ const donors = [
         bloodGroup: "O-",
         area: "Bagh",
         phone: "03000000004",
-        lastDonation: "2026-07-01"
+        caseClosedDate: "2026-07-01"
     },
 
     {
@@ -71,7 +91,7 @@ const donors = [
         bloodGroup: "AB+",
         area: "Rawalpindi",
         phone: "03000000005",
-        lastDonation: "2026-03-12"
+        caseClosedDate: "2026-03-12"
     },
 
     {
@@ -80,17 +100,23 @@ const donors = [
         bloodGroup: "B-",
         area: "Muzaffarabad",
         phone: "03000000006",
-        lastDonation: "2026-07-10"
+        caseClosedDate: "2026-07-10"
     }
 
 ];
 
 
 /* =========================================================
-   90 DAY DONATION RULE
-========================================================= */
+   WAITING PERIOD
+=========================================================
 
-const DONATION_WAIT_DAYS = 90;
+   Ab 90 days use nahi kar rahe.
+
+   Rule:
+   Case closed date + 3 calendar months
+   = donor available date
+
+========================================================= */
 
 
 /* =========================================================
@@ -124,6 +150,8 @@ function initializeWebsite() {
 
     setupScrollReveal();
 
+    addDonorCardStyles();
+
 }
 
 
@@ -152,6 +180,11 @@ function setupMobileMenu() {
 
         const icon =
             menuButton.querySelector("i");
+
+
+        if (!icon) {
+            return;
+        }
 
 
         if (navMenu.classList.contains("show")) {
@@ -183,8 +216,14 @@ function setupMobileMenu() {
 
             navMenu.classList.remove("show");
 
+
             const icon =
                 menuButton.querySelector("i");
+
+
+            if (!icon) {
+                return;
+            }
 
 
             icon.classList.remove("fa-xmark");
@@ -278,22 +317,26 @@ function setupSmoothNavigation() {
 
 function setupWhatsAppButtons() {
 
-    const buttons = [
+    const buttonIds = [
 
-        document.getElementById("navWhatsapp"),
+        "navWhatsapp",
 
-        document.getElementById("emergencyWhatsapp"),
+        "emergencyWhatsapp",
 
-        document.getElementById("donorWhatsapp"),
+        "donorWhatsapp",
 
-        document.getElementById("contactWhatsapp"),
+        "contactWhatsapp",
 
-        document.getElementById("floatingWhatsapp")
+        "floatingWhatsapp"
 
     ];
 
 
-    buttons.forEach(button => {
+    buttonIds.forEach(id => {
+
+        const button =
+            document.getElementById(id);
+
 
         if (!button) {
             return;
@@ -302,30 +345,72 @@ function setupWhatsAppButtons() {
 
         button.addEventListener("click", event => {
 
-            if (
-                !WHATSAPP_GROUP_LINK ||
-                WHATSAPP_GROUP_LINK === "#"
-            ) {
+            event.preventDefault();
 
-                event.preventDefault();
-
-
-                alert(
-                    "WhatsApp Group link will be added soon."
-                );
-
-
-                return;
-
-            }
-
-
-            button.href =
-                WHATSAPP_GROUP_LINK;
+            openFoundationWhatsApp();
 
         });
 
     });
+
+}
+
+
+/* =========================================================
+   OPEN FOUNDATION WHATSAPP
+========================================================= */
+
+function openFoundationWhatsApp(message = "") {
+
+    /*
+       Number abhi intentionally blank hai.
+    */
+
+    if (!FOUNDATION_WHATSAPP_NUMBER) {
+
+        alert(
+            "Foundation WhatsApp number will be added soon."
+        );
+
+        return;
+
+    }
+
+
+    const cleanNumber =
+        cleanPhone(
+            FOUNDATION_WHATSAPP_NUMBER
+        );
+
+
+    if (!cleanNumber) {
+
+        alert(
+            "Foundation WhatsApp number is not configured yet."
+        );
+
+        return;
+
+    }
+
+
+    let whatsappURL =
+        `https://wa.me/${cleanNumber}`;
+
+
+    if (message) {
+
+        whatsappURL +=
+            `?text=${encodeURIComponent(message)}`;
+
+    }
+
+
+    window.open(
+        whatsappURL,
+        "_blank",
+        "noopener,noreferrer"
+    );
 
 }
 
@@ -369,6 +454,8 @@ function setupBloodSearch() {
 
         if (event.key === "Enter") {
 
+            event.preventDefault();
+
             performBloodSearch();
 
         }
@@ -384,28 +471,35 @@ function setupBloodSearch() {
 
 function performBloodSearch() {
 
-    const bloodGroup =
-        document
-            .getElementById("bloodGroup")
-            .value
-            .trim();
+    const bloodGroupElement =
+        document.getElementById("bloodGroup");
 
-
-    const area =
-        document
-            .getElementById("area")
-            .value
-            .trim()
-            .toLowerCase();
-
+    const areaElement =
+        document.getElementById("area");
 
     const resultsContainer =
         document.getElementById("donorResults");
 
 
-    if (!resultsContainer) {
+    if (
+        !bloodGroupElement ||
+        !areaElement ||
+        !resultsContainer
+    ) {
+
         return;
+
     }
+
+
+    const bloodGroup =
+        bloodGroupElement.value.trim();
+
+
+    const area =
+        areaElement.value
+            .trim()
+            .toLowerCase();
 
 
     /* Require at least one filter */
@@ -426,7 +520,7 @@ function performBloodSearch() {
 
                 <p>
                     Select a blood group or enter an area
-                    to search the donor network.
+                    to search available donors.
                 </p>
 
             </div>
@@ -438,8 +532,25 @@ function performBloodSearch() {
     }
 
 
-    const matchingDonors =
+    /*
+       IMPORTANT:
+
+       Sirf woh donors search mein appear honge
+       jo 3 calendar months complete kar chuke hain.
+    */
+
+    const availableDonors =
         donors.filter(donor => {
+
+            return calculateDonorStatus(
+                donor.caseClosedDate
+            ).available;
+
+        });
+
+
+    const matchingDonors =
+        availableDonors.filter(donor => {
 
             const groupMatches =
                 !bloodGroup ||
@@ -448,8 +559,7 @@ function performBloodSearch() {
 
             const areaMatches =
                 !area ||
-                donor.area
-                    .toLowerCase()
+                normalizeText(donor.area)
                     .includes(area);
 
 
@@ -475,8 +585,7 @@ function displayDonorResults(
     container
 ) {
 
-
-    if (matchingDonors.length === 0) {
+    if (!matchingDonors.length) {
 
         container.innerHTML = `
 
@@ -487,12 +596,13 @@ function displayDonorResults(
                 </div>
 
                 <h3>
-                    No Donor Found
+                    No Available Donor Found
                 </h3>
 
                 <p>
-                    We couldn't find a matching donor.
-                    Try another blood group or area.
+                    No donor matching your search is
+                    currently available. Try another
+                    blood group or area.
                 </p>
 
             </div>
@@ -520,9 +630,6 @@ function displayDonorResults(
 
     `;
 
-
-    addDonorCardStyles();
-
 }
 
 
@@ -534,7 +641,7 @@ function createDonorCard(donor) {
 
     const status =
         calculateDonorStatus(
-            donor.lastDonation
+            donor.caseClosedDate
         );
 
 
@@ -546,6 +653,10 @@ function createDonorCard(donor) {
         escapeHTML(donor.area);
 
 
+    const safeBloodGroup =
+        escapeHTML(donor.bloodGroup);
+
+
     return `
 
         <article class="donor-card">
@@ -554,7 +665,7 @@ function createDonorCard(donor) {
 
                 <div class="donor-blood">
 
-                    ${escapeHTML(donor.bloodGroup)}
+                    ${safeBloodGroup}
 
                 </div>
 
@@ -584,7 +695,7 @@ function createDonorCard(donor) {
                     <span>
                         Blood Group:
                         <strong>
-                            ${escapeHTML(donor.bloodGroup)}
+                            ${safeBloodGroup}
                         </strong>
                     </span>
 
@@ -604,11 +715,10 @@ function createDonorCard(donor) {
 
                 <div class="donor-detail">
 
-                    <i class="fa-solid fa-calendar"></i>
+                    <i class="fa-solid fa-circle-check"></i>
 
                     <span>
-                        Last Donation:
-                        ${formatDate(donor.lastDonation)}
+                        Donor Available
                     </span>
 
                 </div>
@@ -618,42 +728,17 @@ function createDonorCard(donor) {
 
             <div class="donor-card-bottom">
 
-                ${
-                    status.available
-                    ?
+                <button
+                    type="button"
+                    class="donor-contact"
+                    onclick="contactDonorViaFoundation('${escapeJS(donor.name)}', '${escapeJS(donor.bloodGroup)}', '${escapeJS(donor.area)}')"
+                >
 
-                    `
+                    <i class="fa-brands fa-whatsapp"></i>
 
-                    <a
-                        href="https://wa.me/${cleanPhone(donor.phone)}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="donor-contact"
-                    >
+                    Contact Foundation
 
-                        <i class="fa-brands fa-whatsapp"></i>
-
-                        Contact Donor
-
-                    </a>
-
-                    `
-
-                    :
-
-                    `
-
-                    <div class="donor-unavailable">
-
-                        <i class="fa-solid fa-clock"></i>
-
-                        Donation interval pending
-
-                    </div>
-
-                    `
-
-                }
+                </button>
 
             </div>
 
@@ -665,34 +750,81 @@ function createDonorCard(donor) {
 
 
 /* =========================================================
-   DONOR STATUS CALCULATION
+   CONTACT FOUNDATION ABOUT DONOR
 ========================================================= */
 
-function calculateDonorStatus(lastDonation) {
+function contactDonorViaFoundation(
+    donorName,
+    bloodGroup,
+    area
+) {
 
-    const donationDate =
-        new Date(lastDonation);
+    const message =
+        `Assalam o Alaikum, I need blood assistance.
+
+Donor Name: ${donorName}
+Blood Group: ${bloodGroup}
+Area: ${area}
+
+Please help me connect with the donor.`;
 
 
-    const today =
-        new Date();
+    openFoundationWhatsApp(message);
+
+}
 
 
-    const difference =
-        today.getTime() -
-        donationDate.getTime();
+/* =========================================================
+   DONOR STATUS CALCULATION
+=========================================================
+
+   IMPORTANT:
+
+   3 MONTHS = calendar months
+
+   Example:
+
+   Case closed:
+   20 May 2026
+
+   Available:
+   20 August 2026
+
+========================================================= */
+
+function calculateDonorStatus(caseClosedDate) {
+
+    const closedDate =
+        parseLocalDate(caseClosedDate);
 
 
-    const daysPassed =
-        Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
+    if (!closedDate) {
+
+        return {
+
+            available: false,
+
+            label: "Case Closed",
+
+            className: "status-pending"
+
+        };
+
+    }
+
+
+    const availableDate =
+        addCalendarMonths(
+            closedDate,
+            3
         );
 
 
-    if (
-        daysPassed >= DONATION_WAIT_DAYS
-    ) {
+    const today =
+        startOfToday();
+
+
+    if (today >= availableDate) {
 
         return {
 
@@ -700,7 +832,9 @@ function calculateDonorStatus(lastDonation) {
 
             label: "Available",
 
-            className: "status-available"
+            className: "status-available",
+
+            availableDate: availableDate
 
         };
 
@@ -708,20 +842,185 @@ function calculateDonorStatus(lastDonation) {
 
 
     const remainingDays =
-        DONATION_WAIT_DAYS -
-        daysPassed;
+        calculateDaysBetween(
+            today,
+            availableDate
+        );
 
 
     return {
 
         available: false,
 
-        label:
-            `${remainingDays} days remaining`,
+        label: "Case Closed",
 
-        className: "status-pending"
+        className: "status-pending",
+
+        remainingDays: remainingDays,
+
+        availableDate: availableDate
 
     };
+
+}
+
+
+/* =========================================================
+   ADD CALENDAR MONTHS
+========================================================= */
+
+function addCalendarMonths(
+    date,
+    months
+) {
+
+    const originalDay =
+        date.getDate();
+
+
+    const result =
+        new Date(date);
+
+
+    result.setDate(1);
+
+
+    result.setMonth(
+        result.getMonth() + months
+    );
+
+
+    const lastDay =
+        new Date(
+            result.getFullYear(),
+            result.getMonth() + 1,
+            0
+        ).getDate();
+
+
+    result.setDate(
+        Math.min(
+            originalDay,
+            lastDay
+        )
+    );
+
+
+    return startOfDay(result);
+
+}
+
+
+/* =========================================================
+   DATE PARSER
+========================================================= */
+
+function parseLocalDate(dateString) {
+
+    if (!dateString) {
+        return null;
+    }
+
+
+    const parts =
+        String(dateString)
+            .split("-")
+            .map(Number);
+
+
+    if (parts.length !== 3) {
+        return null;
+    }
+
+
+    const [
+        year,
+        month,
+        day
+    ] = parts;
+
+
+    const date =
+        new Date(
+            year,
+            month - 1,
+            day
+        );
+
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return null;
+
+    }
+
+
+    return startOfDay(date);
+
+}
+
+
+/* =========================================================
+   START OF TODAY
+========================================================= */
+
+function startOfToday() {
+
+    return startOfDay(
+        new Date()
+    );
+
+}
+
+
+/* =========================================================
+   START OF DAY
+========================================================= */
+
+function startOfDay(date) {
+
+    const result =
+        new Date(date);
+
+
+    result.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   CALCULATE DAYS BETWEEN DATES
+========================================================= */
+
+function calculateDaysBetween(
+    startDate,
+    endDate
+) {
+
+    const difference =
+        endDate.getTime() -
+        startDate.getTime();
+
+
+    return Math.max(
+        0,
+        Math.ceil(
+            difference /
+            (1000 * 60 * 60 * 24)
+        )
+    );
 
 }
 
@@ -733,10 +1032,10 @@ function calculateDonorStatus(lastDonation) {
 function formatDate(dateString) {
 
     const date =
-        new Date(dateString);
+        parseLocalDate(dateString);
 
 
-    if (Number.isNaN(date.getTime())) {
+    if (!date) {
 
         return "Not available";
 
@@ -762,15 +1061,17 @@ function formatDate(dateString) {
 function cleanPhone(phone) {
 
     let cleaned =
-        String(phone)
+        String(phone || "")
             .replace(/\D/g, "");
 
 
     /*
        Pakistan local number:
+
        03001234567
 
-       WhatsApp international:
+       becomes:
+
        923001234567
     */
 
@@ -787,6 +1088,19 @@ function cleanPhone(phone) {
 
 
     return cleaned;
+
+}
+
+
+/* =========================================================
+   NORMALIZE TEXT
+========================================================= */
+
+function normalizeText(value) {
+
+    return String(value || "")
+        .trim()
+        .toLowerCase();
 
 }
 
@@ -816,7 +1130,7 @@ function updateStatistics() {
         donors.filter(donor => {
 
             return calculateDonorStatus(
-                donor.lastDonation
+                donor.caseClosedDate
             ).available;
 
         }).length;
@@ -980,10 +1294,6 @@ function setupScrollReveal() {
 
 /* =========================================================
    DONOR CARD STYLES
-=========================================================
-
-   These styles are generated here because donor cards
-   are created dynamically by JavaScript.
 ========================================================= */
 
 function addDonorCardStyles() {
@@ -1018,6 +1328,8 @@ function addDonorCardStyles() {
 
             gap: 18px;
 
+            margin-top: 20px;
+
         }
 
 
@@ -1036,7 +1348,10 @@ function addDonorCardStyles() {
 
             backdrop-filter: blur(12px);
 
-            transition: 0.3s ease;
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease;
 
         }
 
@@ -1048,6 +1363,9 @@ function addDonorCardStyles() {
 
             background:
                 rgba(255,255,255,0.09);
+
+            border-color:
+                rgba(255,255,255,0.20);
 
         }
 
@@ -1075,6 +1393,8 @@ function addDonorCardStyles() {
             display: grid;
 
             place-items: center;
+
+            flex-shrink: 0;
 
             border-radius: 15px;
 
@@ -1112,6 +1432,8 @@ function addDonorCardStyles() {
 
             font-weight: 700;
 
+            white-space: nowrap;
+
         }
 
 
@@ -1124,6 +1446,8 @@ function addDonorCardStyles() {
             border-radius: 50%;
 
             display: block;
+
+            flex-shrink: 0;
 
         }
 
@@ -1179,6 +1503,8 @@ function addDonorCardStyles() {
 
             font-size: 21px;
 
+            line-height: 1.25;
+
         }
 
 
@@ -1197,12 +1523,16 @@ function addDonorCardStyles() {
 
             font-size: 10px;
 
+            line-height: 1.5;
+
         }
 
 
         .donor-detail i {
 
             width: 20px;
+
+            flex-shrink: 0;
 
             color:
                 var(--red-light);
@@ -1235,7 +1565,7 @@ function addDonorCardStyles() {
 
             width: 100%;
 
-            min-height: 43px;
+            min-height: 45px;
 
             display: flex;
 
@@ -1245,17 +1575,25 @@ function addDonorCardStyles() {
 
             gap: 8px;
 
+            border: 0;
+
             border-radius: 10px;
 
             color: white;
 
             background: #15803d;
 
+            font-family: inherit;
+
             font-size: 10px;
 
             font-weight: 800;
 
-            transition: 0.3s ease;
+            cursor: pointer;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease;
 
         }
 
@@ -1338,6 +1676,69 @@ function addDonorCardStyles() {
 
                 grid-template-columns: 1fr;
 
+                gap: 14px;
+
+            }
+
+
+            .donor-card {
+
+                padding: 20px;
+
+                border-radius: 18px;
+
+            }
+
+
+            .donor-card-top {
+
+                gap: 10px;
+
+            }
+
+
+            .donor-blood {
+
+                width: 50px;
+
+                height: 50px;
+
+                border-radius: 13px;
+
+            }
+
+
+            .donor-status {
+
+                font-size: 8px;
+
+                padding: 6px 8px;
+
+            }
+
+
+            .donor-info h3 {
+
+                font-size: 20px;
+
+                margin-top: 18px;
+
+            }
+
+
+            .donor-detail {
+
+                font-size: 10px;
+
+            }
+
+
+            .donor-contact {
+
+                min-height: 48px;
+
+                font-size: 11px;
+
             }
 
         }
@@ -1351,7 +1752,7 @@ function addDonorCardStyles() {
 
 
 /* =========================================================
-   SECURITY HELPER
+   ESCAPE HTML
 ========================================================= */
 
 function escapeHTML(value) {
@@ -1367,6 +1768,25 @@ function escapeHTML(value) {
         .replace(/"/g, "&quot;")
 
         .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   ESCAPE JAVASCRIPT STRING
+========================================================= */
+
+function escapeJS(value) {
+
+    return String(value || "")
+
+        .replace(/\\/g, "\\\\")
+
+        .replace(/'/g, "\\'")
+
+        .replace(/"/g, '\\"')
+
+        .replace(/\r?\n/g, "\\n");
 
 }
 
